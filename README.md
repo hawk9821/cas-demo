@@ -6,8 +6,10 @@
 - `cas-clientA`基于`Springboot`搭建cas客户端
 - `cas-clientB`基于`Servlet + SpringMVC`搭建cas客户端
 - `cas-clientC`基于`Servlet`搭建cas客户端
-###一、工程配置
-####工程为maven工程`root  pom.xml` 如下：
+
+### 一、工程配置
+
+#### 工程为maven工程`root  pom.xml` 如下：
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -29,28 +31,38 @@
 
 </project>
 ```
-####mvn编译打包，需要下载相关依赖
+
+#### mvn编译打包，需要下载相关依赖
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/casdemo1.jpg)
-####配置tomcat
-#####`cas-server`
+
+#### 配置tomcat
+
+##### `cas-server`
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/casserver1.jpg)
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/casserver2.jpg)
-#####`cas-clientB`
+
+##### `cas-clientB`
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/casclient1.jpg)
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/casclient2.jpg)
-#####`cas-clientC`同`cas-clientB`
 
-###二、cas-server
-###1.域名映射
-####修改host文件，添加服务端域名及客户端域名
+##### `cas-clientC`同`cas-clientB`
+
+### 二、cas-server
+
+### 1.域名映射
+
+#### 修改host文件，添加服务端域名及客户端域名
+
 ```bash
 127.0.0.1      cas.server.com
 127.0.0.1      app1.cas.com
 127.0.0.1      app2.cas.com
 127.0.0.1      app3.cas.com
 ```
-###2.本地配置tomcat通过https访问
-####生成keystore
+### 2.本地配置tomcat通过https访问
+
+#### 生成keystore
+
 ```bash
 keytool -genkey -alias tomcat -keyalg RSA -validity 3650 -keystore server.keystore
 ```
@@ -61,12 +73,16 @@ keytool -genkey -alias tomcat -keyalg RSA -validity 3650 -keystore server.keysto
 秘钥库口令 : `changeit` 。
 
 名字与姓氏输入服务器域名,其它一路回车，最后如果显示正确 输入 `y` 就行了。 tomcat秘钥口令与秘钥库相同
-####根据keystore生成crt文件
+
+#### 根据keystore生成crt文件
+
 ```bash
 keytool -export -alias tomcat -file server.cer -keystore server.keystore -validity 3650 -storepass changeit
 ```
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/certificate2.jpg)
-####导入证书到jdk
+
+#### 导入证书到jdk
+
 ```bash
 keytool -delete -alias tomcat -keystore "C:\Program Files\Java\jdk1.8.0_171\jre\lib\security\cacerts" -storepass changeit
 
@@ -74,13 +90,16 @@ keytool -import -keystore "C:\Program Files\Java\jdk1.8.0_171\jre\lib\security\c
 ```
 
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/certificate4.jpg)
-####检查证书是否正确导入
+
+#### 检查证书是否正确导入
+
 ```bash
 keytool -list -v -alias tomcat -keystore "C:\Program Files\Java\jdk1.8.0_171\jre\lib\security\cacerts" -storepass changeit
 ```
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/certificate5.jpg)
-####修改tomcat的配置文件`apache-tomcat-8.5.50\conf\server.xml`
-添加以下内容：
+
+#### 修改tomcat的配置文件`apache-tomcat-8.5.50\conf\server.xml`,添加以下内容：
+
 ```xml
 <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
            maxThreads="200" SSLEnabled="true" scheme="https"
@@ -88,8 +107,10 @@ keytool -list -v -alias tomcat -keystore "C:\Program Files\Java\jdk1.8.0_171\jre
            keystoreFile="G:\WorkSpace\cas-demo\cas-server\src\main\resources\server.keystore"
            keystorePass="changeit"/>
 ```
-####chrome浏览器添加信任证书
+
+#### chrome浏览器添加信任证书
 设置 > 高级 > 证书管理 > 导入`server.cer`
+
 ![images](https://github.com/hawk9821/cas-demo/blob/master/doc/certificate6.jpg)
 
-###3.
+### 3.
