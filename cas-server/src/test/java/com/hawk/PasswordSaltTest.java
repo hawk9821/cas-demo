@@ -69,9 +69,9 @@ public class PasswordSaltTest {
         System.out.println("password   :" + this.encodedPassword);
         System.out.println("encodedPassword   :" + encrPWD);
         System.out.println("===============================");
-        String encodePwd = getEncodePwd(null, this.algorithmName, salt, this.encodedPassword);
-        System.out.println("encodedPassword   :" + encodePwd);
-        System.out.println(encodePwd.equals(encrPWD));
+//        String encodePwd = getEncodePwd(null, this.algorithmName, salt, this.encodedPassword);
+//        System.out.println("encodedPassword   :" + encodePwd);
+//        System.out.println(encodePwd.equals(encrPWD));
 
     }
 

@@ -11,7 +11,7 @@
  Target Server Version : 50715
  File Encoding         : 65001
 
- Date: 30/01/2020 23:33:23
+ Date: 01/02/2020 19:42:41
 */
 
 SET NAMES utf8mb4;
@@ -33,12 +33,12 @@ CREATE TABLE `user_info`  (
   PRIMARY KEY (`uid`) USING BTREE,
   UNIQUE INDEX `username`(`username`) USING BTREE,
   UNIQUE INDEX `id_card_num`(`id_card_num`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_info
 -- ----------------------------
-INSERT INTO `user_info` VALUES (1, 'amdin', 'admin', 'b11d5ed0c5b99693b3e2d751a7ef541f', 'e61fb780850c6b97ff1c2444e277bf45', '888888888888888888', 0, 1);
-INSERT INTO `user_info` VALUES (2, 'test', 'test', '352538e12384b7ae17a2d5d03ea8aef9', 'f6b9a14f6358facb34489fc84bedda9f', '1111', 0, 0);
+INSERT INTO `user_info` VALUES (1, 'amdin', 'admin', '56eabb63579201135f3d5e28ed63f446', '44c6a5628f82aca59ae4f62779ed0f44', '888888888888888888', 0, 0);
+INSERT INTO `user_info` VALUES (2, 'test', 'test', '3392e3ee8424f099b4390aa1621e1a91', 'dc21d085e705aa9e6129f15057d1de39', '1111', 0, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
