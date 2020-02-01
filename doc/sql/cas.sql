@@ -11,7 +11,7 @@
  Target Server Version : 50715
  File Encoding         : 65001
 
- Date: 01/02/2020 19:42:41
+ Date: 01/02/2020 22:45:40
 */
 
 SET NAMES utf8mb4;
@@ -38,7 +38,7 @@ CREATE TABLE `user_info`  (
 -- ----------------------------
 -- Records of user_info
 -- ----------------------------
-INSERT INTO `user_info` VALUES (1, 'amdin', 'admin', '56eabb63579201135f3d5e28ed63f446', '44c6a5628f82aca59ae4f62779ed0f44', '888888888888888888', 0, 0);
-INSERT INTO `user_info` VALUES (2, 'test', 'test', '3392e3ee8424f099b4390aa1621e1a91', 'dc21d085e705aa9e6129f15057d1de39', '1111', 0, 0);
+INSERT INTO `user_info` VALUES (1, '管理员', 'admin', '56eabb63579201135f3d5e28ed63f446', '44c6a5628f82aca59ae4f62779ed0f44', '888888888888888888', 0, 0);
+INSERT INTO `user_info` VALUES (2, '测试用户', 'test', '3392e3ee8424f099b4390aa1621e1a91', 'dc21d085e705aa9e6129f15057d1de39', '1111', 0, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
